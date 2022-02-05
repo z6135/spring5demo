@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    Bean注入方式-->
+    <bean id="address" class="com.spring.pojo.Address">
+        <property name="address" value="山西"/>
+    </bean>
+
+    <!-- 常量注入方式-->
+    <bean id="student" class="com.spring.pojo.Student">
+        <property name="name" value="厂长"/>
+
+        <!--    Bean注入方式-->
+        <!--    这里需要注意这里需要映射到上面的addresss的Bean注入,所以使用ref来进行映射   -->
+        <property name="address" ref="address"/>
+
+        <!--    数组注入方式-->
+        <property name="course">
+            <array>
+                <value>数据结构</value>
+                <value>数据库原理</value>
+                <value>操作系统</value>
+                <value>计算机网络</value>
+            </array>
+        </property>
+
+        <!--    List注入    -->
+        <property name="hobbies">
+            <list>
+                <value>打游戏</value>
+                <value>敲代码</value>
+                <value>旅游</value>
+            </list>
+        </property>
+
+        <!--    Map注入 entry实体 key value进行注入   -->
+        <property name="books">
+            <map>
+                <entry key="10001" value="面向对象程序设计A"/>
+                <entry key="10002" value="面向对象程序设计B"/>
+                <entry key="10003" value="操作系统与组成原理"/>
+            </map>
+        </property>
+
+        <!--    Set注入  value标签 -->
+        <property name="games">
+            <set>
+              <value>LOL</value>
+              <value>CF</value>
+              <value>梦三国</value>
+            </set>
+        </property>
+
+        <!--    NUll注入  -->
+        <property name="girlfriends">
+            <null></null>
+        </property>
+
+        <!--    Properties注入  -->
+        <property name="info">
+            <props>
+                <prop key="driver">com.mysql.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306?test</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+
+
+
+
+</beans>
